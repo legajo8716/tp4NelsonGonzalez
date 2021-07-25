@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.t4nelson.R
 import com.example.t4nelson.databinding.FragmentHomeBinding
+import com.google.android.material.textfield.TextInputLayout
 
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
@@ -35,31 +37,7 @@ class HomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.ingresoNombreEdit.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                if(s!!.length != 0)
-                    binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
-                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
-            }
-
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
-                if(s!!.length != 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
-                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
-
-                ;
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if(s!!.length != 0)
-                    binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
-                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
-            }
-
-
-        })
+        binding.ingresoNombreEdit.addTextChangedListener(crearControl(binding.ingresoNombre))
 
     }
 
@@ -69,4 +47,26 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun crearControl(layoutEditText: TextInputLayout): TextWatcher {
+       return object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if(s!!.length != 0) layoutEditText.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) layoutEditText.setEndIconDrawable(R.drawable.ic_menu_camera)
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length != 0) layoutEditText.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) layoutEditText.setEndIconDrawable(R.drawable.ic_menu_camera)
+            }
+            override fun afterTextChanged(s: Editable?) {
+                if(s!!.length != 0)
+                    layoutEditText.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) layoutEditText.setEndIconDrawable(R.drawable.ic_menu_camera)
+            } }
+
+    }
+
+
+
 }
