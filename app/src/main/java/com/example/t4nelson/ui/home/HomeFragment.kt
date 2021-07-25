@@ -1,6 +1,8 @@
 package com.example.t4nelson.ui.home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,13 +35,33 @@ class HomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ingresoNombre.addOnEditTextAttachedListener {
-           it.setEndIconDrawable(R.drawable.ic_menu_gallery)
-        }
 
+        binding.ingresoNombreEdit.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if(s!!.length != 0)
+                    binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
+            }
+
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length != 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
+
+                ;
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(s!!.length != 0)
+                    binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_gallery)
+                if(s!!.length == 0) binding.ingresoNombre.setEndIconDrawable(R.drawable.ic_menu_camera)
+            }
+
+
+        })
 
     }
-
 
 
 

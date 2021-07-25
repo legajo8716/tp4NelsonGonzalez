@@ -37,6 +37,8 @@
         app:endIconContentDescription="error">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ingreso_nombre_edit"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
