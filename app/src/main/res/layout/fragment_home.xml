@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="250dp"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
     android:orientation="vertical"
     app:layout_anchorGravity="center_horizontal"
     tools:context=".ui.home.HomeFragment">
@@ -12,6 +13,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Login"
         android:textSize="40dp" />
 
@@ -25,32 +27,69 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ingreso_nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="nombre"
-        app:endIconContentDescription="error"
-        app:endIconDrawable="@drawable/ic_menu_camera"
-        app:endIconMode="custom">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ingreso_nombre_edit"
-
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingreso_nombre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="nombre"
+            app:endIconContentDescription="error"
+            app:endIconDrawable="@drawable/ic_menu_camera"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ingreso_nombre_edit"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>    //nombre
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingreso_apellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nombre"
+            app:endIconContentDescription="error"
+            app:endIconDrawable="@drawable/ic_menu_camera"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ingreso_apellido_edit"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>    //apellido
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ingreso_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nombre"
+            app:endIconContentDescription="error"
+            app:endIconDrawable="@drawable/ic_menu_camera"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ingreso_direccion_edit"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>    //direccion
+
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:text="Button" />
+    </LinearLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
-    //nombre
 
 
 </LinearLayout>

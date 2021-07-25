@@ -38,6 +38,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.ingresoNombreEdit.addTextChangedListener(crearControl(binding.ingresoNombre))
+        binding.ingresoApellidoEdit.addTextChangedListener(crearControl(binding.ingresoApellido))
+        binding.ingresoDireccionEdit.addTextChangedListener(crearControl(binding.ingresoDireccion))
 
     }
 
